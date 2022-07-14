@@ -1,0 +1,81 @@
+<html>
+
+<head>
+    <title>home page design</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .main {
+            background-color: white;
+            display: flex;
+            flex-direction: row;
+        }
+
+        #sidebar {
+            display: none;
+            background-color: orange;
+            height: 100vh;
+            animation-name: show;
+            animation-duration: 3s;
+            animation-iteration-count: 1;
+        }
+
+        @keyframes show {
+            0% {
+                width: 0%;
+            }
+
+            100% {
+                width: 20%;
+            }
+        }
+
+        @keyframes exit {
+            0% {
+                width: 20%;
+            }
+
+            100% {
+                width: 0%;
+            }
+        }
+
+        #mainpage {
+            background-color: purple;
+            width: 100%;
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div id="sidebar">
+            hello
+        </div>
+        <div id="mainpage">
+            </button><button onclick="loadsidebar()">menu</button>
+        </div>
+    </div>
+    <script>
+        var load = true
+        function loadsidebar() {
+            if (load) {
+                document.getElementById('sidebar').style.display = 'flex';
+                document.getElementById('sidebar').style.animationName = 'show';
+                document.getElementById('sidebar').style.width = '20%';
+                load = !load;
+            }
+            else {
+                document.getElementById('sidebar').style.animationName = 'exit';
+                document.getElementById('sidebar').style.width = '0%';
+                load = !load;
+            }
+        }
+    </script>
+</body>
+
+</html>
